@@ -1,23 +1,23 @@
 import numpy as np
 from cobaya.theories.camb.camb import CAMB, CAMBOutputs
 
-class cast_theory(CAMB):
+class crest_EFT(CAMB):
     r"""
-    Causal Automaton Spacetime (CAST) Theory Wrapper.
+    CREST EFT Wrapper.
     Injects 3D Brillouin lattice dispersion transfer function into CAMB initial power table.
     """
     def get_can_support_params(self):
-        return list(super().get_can_support_params()) + ["k_c", "xi_cast"]
+        return list(super().get_can_support_params()) + ["k_c", "xi_reg"]
 
     def calculate(self, state, want_derived=True, **params_values_dict):
-        # 1. CAST parameters pop karo taaki standard CAMB power args mein leak na hon
+        # 1. CREST parameters pop
         kc = params_values_dict.pop("k_c", 0.25)
-        xi = params_values_dict.pop("xi_cast", 0.055)
+        xi = params_values_dict.pop("xi_reg", 0.055)
 
-        # 2. Transfer calculations fetch karo
+        # 2. Transfer calculations
         params, results = self.provider.get_CAMB_transfers()
 
-        # 3. Standard baseline primordial parameters collect karo
+        # 3. Standard baseline primordial parameters
         args = {
             self.translate_param(p): v
             for p, v in params_values_dict.items()
@@ -25,7 +25,7 @@ class cast_theory(CAMB):
         }
         args.update(self.initial_power_args)
 
-        # Primordial values seedha params dictionary se read karo (SplinedInitialPower attribute error se bachne ke liye)
+        # Primordial values
         ns = params_values_dict.get("ns", args.get("ns", 0.9649))
         if "As" in params_values_dict:
             As = params_values_dict["As"]
@@ -35,15 +35,15 @@ class cast_theory(CAMB):
             As = args.get("As", 2.1e-9)
         pivot = args.get("pivot_scalar", 0.05)
 
-        # 4. Appendix A.3: Sub-Planckian Brillouin dispersion modulation construct karo
+        # 4. Appendix A.3: Sub-Planckian Brillouin dispersion modulation
         ks = np.geomspace(1e-4, 5.0, 3000)
         P_0 = As * (ks / pivot) ** (ns - 1.0)
 
         # Brillouin cutoff impedance
         u = np.clip(ks / kc, 1e-6, 1.0)
         K_lat = (np.pi**2 / 40.0) * (u**2)
-        T_CA_sq = (1.0 - K_lat)**2
-        P_mod = P_0 * (1.0 - xi * (1.0 - T_CA_sq))
+        T_sq = (1.0 - K_lat)**2
+        P_mod = P_0 * (1.0 - xi * (1.0 - T_sq))
 
         # Initial power table override via CAMBparams
         results.Params.set_initial_power_table(ks, P_mod)
@@ -67,7 +67,7 @@ class cast_theory(CAMB):
                 nl_args.update(self.nonlin_args)
                 results.Params.NonLinearModel.set_params(**nl_args)
 
-        # 6. Final power spectra solve karo
+        # 6. Final power spectra solution
         try:
             results.power_spectra_from_transfer()
 
@@ -76,7 +76,7 @@ class cast_theory(CAMB):
                 results.Params.InitPower.As *= (params_values_dict["sigma8"]**2 / sigma8**2)
                 results.power_spectra_from_transfer()
 
-            # 7. Likelihood collectors ko Cl pass karo
+            # 7. Likelihood collectors
             for product, collector in self.collectors.items():
                 if collector:
                     state[product] = collector.method(results, *collector.args, **collector.kwargs)
@@ -95,7 +95,7 @@ class cast_theory(CAMB):
             else:
                 return False
 
-        # 8. Derived aur extra parameters populate karo
+        # 8. Derived and extra parameters population
         intermediates = CAMBOutputs(
             params, results, results.get_derived_params() if results else None
         )

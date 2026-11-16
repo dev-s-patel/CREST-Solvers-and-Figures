@@ -1,5 +1,5 @@
 theory:
-  cast_theory.cast_theory:
+  crest_theory.crest_theory:
     version: 2.0.5
     path: null
     speed: 0.3
@@ -22,7 +22,7 @@ theory:
     - As
     - ns
     - k_c
-    - xi_cast
+    - xi_reg
     - ombh2
     - omch2
     - H0
@@ -119,13 +119,13 @@ params:
     ref: 0.25
     proposal: 0.03
     latex: k_c
-  xi_cast:
+  xi_reg:
     prior:
       min: 0.0
       max: 0.12
     ref: 0.055
     proposal: 0.01
-    latex: \xi_{\mathrm{cast}}
+    latex: \xi_{\mathrm{reg}}
   A_planck:
     prior:
       dist: norm
@@ -176,7 +176,7 @@ sampler:
       - - As
         - ns
         - k_c
-        - xi_cast
+        - xi_reg
     - - 8
       - - A_planck
     callback_function: null
@@ -188,5 +188,5 @@ sampler:
     fallback_covmat_scale: 4
     version: 3.6.2
 packages_path: ./packages
-output: cast_planck
+output: crest_planck
 version: 3.6.2

@@ -1,18 +1,13 @@
-packages_path: ./packages
-
 theory:
-  cast_theory.cast_theory:
+  crest_theory.crest_theory:
     python_path: .
     extra_args:
       lens_potential_accuracy: 1
-
 likelihood:
   planck_2018_lowl.TT: null
   planck_2018_lowl.EE: null
   planck_2018_highl_plik.TTTEEE_lite: null
-
 params:
-  # Standard 6 LCDM Parameters
   ombh2:
     prior:
       min: 0.019
@@ -24,7 +19,7 @@ params:
     prior:
       min: 0.09
       max: 0.15
-    ref: 0.1200
+    ref: 0.12
     proposal: 0.0012
     latex: \Omega_c h^2
   H0:
@@ -43,10 +38,10 @@ params:
     latex: \tau_{\mathrm{reio}}
   As:
     prior:
-      min: 1.5e-9
-      max: 2.7e-9
-    ref: 2.1e-9
-    proposal: 3e-11
+      min: 1.5e-09
+      max: 2.7e-09
+    ref: 2.1e-09
+    proposal: 3.0e-11
     latex: A_s
   ns:
     prior:
@@ -55,27 +50,25 @@ params:
     ref: 0.9649
     proposal: 0.004
     latex: n_s
-
-  # CAST Free Parameters
   k_c:
     prior:
       min: 0.08
-      max: 0.60
+      max: 0.6
     ref: 0.25
     proposal: 0.03
     latex: k_c
-  xi_cast:
+  xi_reg:
     prior:
       min: 0.0
       max: 0.12
     ref: 0.055
     proposal: 0.01
-    latex: \xi_{\mathrm{cast}}
-
+    latex: \xi_{\mathrm{reg}}
 sampler:
   mcmc:
     burn_in: 50
     max_tries: 50000
     Rminus1_stop: 0.03
-
-output: chains/cast_planck
+    Rminus1_cl_stop: 0.05
+packages_path: ./packages
+output: crest_planck

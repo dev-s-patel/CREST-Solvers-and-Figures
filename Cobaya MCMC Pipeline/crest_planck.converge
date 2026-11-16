@@ -8,7 +8,7 @@ tau                                                42.30           23.51        
 As                                                 42.64           23.70            1564
 ns                                                 68.11           37.86             979
 k_c                                                91.43           50.83             729
-xi_cast                                            65.56           36.44            1017
+xi_reg                                             65.56           36.44            1017
 A_planck                                           49.17           27.33            1357
 chi2__CMB                                          47.54           26.42            1403
 minuslogprior                                      37.97           21.11            1757
@@ -29,7 +29,7 @@ tau                                          0.0329  \tau_{\mathrm{reio}}
 As                                           0.0520  A_s
 ns                                           0.0344  n_s
 k_c                                          0.1425  k_c
-xi_cast                                      0.1246  \xi_{\mathrm{cast}}
+xi_reg                                       0.1246  \xi_{\mathrm{reg}}
 A_planck                                     0.0885  y_\mathrm{cal}
 chi2__CMB                                    0.0657  \chi^2_\mathrm{CMB}
 minuslogprior                                0.0556  -\log\pi
@@ -57,8 +57,8 @@ ns                                          0.1452   0.0185   0.2378 upper
 ns                                          0.0056   0.0367   0.0374 lower
 k_c                                         0.0087   0.0190   0.0316 upper
 k_c                                         0.0486   0.0717   0.1021 lower
-xi_cast                                     0.0392   0.0448   0.0444 upper
-xi_cast                                     0.0145   0.0110   0.0153 lower
+xi_reg                                      0.0392   0.0448   0.0444 upper
+xi_reg                                      0.0145   0.0110   0.0153 lower
 A_planck                                    0.1206   0.0726   0.1254 upper
 A_planck                                    0.0449   0.0516   0.1474 lower
 chi2__CMB                                   0.1429   0.1532   0.2232 upper
