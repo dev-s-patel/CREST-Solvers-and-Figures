@@ -77,5 +77,6 @@ sampler:
     burn_in: 50
     max_tries: 50000
     Rminus1_stop: 0.03
+    Rminus1_cl_stop: null
 
 output: chains/crest_planck

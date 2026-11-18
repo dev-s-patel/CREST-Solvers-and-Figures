@@ -64,6 +64,6 @@ sampler:
     covmat: crest_Alens.covmat
     max_tries: 50000
     Rminus1_stop: 0.03
-    Rminus1_cl_stop: 0.05
+    Rminus1_cl_stop: null
 
 output: chains/crest_planck_Alens
