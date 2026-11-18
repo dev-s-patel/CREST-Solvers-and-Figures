@@ -7,7 +7,17 @@ theory:
 likelihood:
   planck_2018_lowl.TT: null
   planck_2020_lollipop.lowlE: null
-  planck_2020_hillipop.TTTEEE: null
+  planck_2020_hillipop.TTTEEE:
+    lrange:
+      TT:
+      - 30
+      - 1000
+      TE:
+      - 30
+      - 1000
+      EE:
+      - 30
+      - 1000
   act_dr6:
     external: candl.interface.CandlCobayaLikelihood
     data_set_file: candl_data.ACT_DR6_TTTEEE
@@ -78,240 +88,247 @@ params:
     prior:
       dist: norm
       loc: 1.0
-      scale: 0.1
+      scale: 0.01
     ref: 1.0
-    proposal: 0.05
+    proposal: 0.005
   EE_Poisson_90x90:
     prior:
       dist: norm
       loc: 0.040469
-      scale: 0.1
+      scale: 0.01
     ref: 0.040469
-    proposal: 0.05
+    proposal: 0.005
   EE_Poisson_90x150:
     prior:
       dist: norm
       loc: 0.018048
-      scale: 0.1
+      scale: 0.01
     ref: 0.018048
-    proposal: 0.05
+    proposal: 0.005
   EE_Poisson_90x220:
     prior:
       dist: norm
       loc: 0.015719
-      scale: 0.1
+      scale: 0.01
     ref: 0.015719
-    proposal: 0.05
+    proposal: 0.005
   EE_Poisson_150x150:
     prior:
       dist: norm
       loc: 0.011495
-      scale: 0.1
+      scale: 0.01
     ref: 0.011495
-    proposal: 0.05
+    proposal: 0.005
   EE_Poisson_150x220:
     prior:
       dist: norm
       loc: 0.018962
-      scale: 0.1
+      scale: 0.01
     ref: 0.018962
-    proposal: 0.05
+    proposal: 0.005
   EE_Poisson_220x220:
     prior:
       dist: norm
       loc: 0.047557
-      scale: 0.1
+      scale: 0.01
     ref: 0.047557
-    proposal: 0.05
+    proposal: 0.005
   TT_Poisson_90x90:
     prior:
       dist: norm
       loc: 51.3204
-      scale: 0.1
+      scale: 0.01
     ref: 51.3204
-    proposal: 0.05
+    proposal: 0.005
   TT_Poisson_90x150:
     prior:
       dist: norm
       loc: 22.4417
-      scale: 0.1
+      scale: 0.01
     ref: 22.4417
-    proposal: 0.05
+    proposal: 0.005
   TT_Poisson_90x220:
     prior:
       dist: norm
       loc: 20.7004
-      scale: 0.1
+      scale: 0.01
     ref: 20.7004
-    proposal: 0.05
+    proposal: 0.005
   TT_Poisson_150x150:
     prior:
       dist: norm
       loc: 15.3455
-      scale: 0.1
+      scale: 0.01
     ref: 15.3455
-    proposal: 0.05
+    proposal: 0.005
   TT_Poisson_150x220:
     prior:
       dist: norm
       loc: 28.3573
-      scale: 0.1
+      scale: 0.01
     ref: 28.3573
-    proposal: 0.05
+    proposal: 0.005
   TT_Poisson_220x220:
     prior:
       dist: norm
       loc: 75.9719
-      scale: 0.1
+      scale: 0.01
     ref: 75.9719
-    proposal: 0.05
+    proposal: 0.005
   TT_CIBClustering_Amp:
     prior:
       dist: norm
       loc: 3.2263
-      scale: 0.1
+      scale: 0.01
     ref: 3.2263
-    proposal: 0.05
+    proposal: 0.005
   TT_CIBClustering_Beta:
     prior:
       dist: norm
       loc: 2.2642
-      scale: 0.1
+      scale: 0.01
     ref: 2.2642
-    proposal: 0.05
+    proposal: 0.005
   EE_PolGalDust_Amp:
     prior:
       dist: norm
       loc: 0.05
-      scale: 0.1
+      scale: 0.01
     ref: 0.05
-    proposal: 0.05
+    proposal: 0.005
   EE_PolGalDust_Alpha:
     prior:
       dist: norm
       loc: -2.42
-      scale: 0.1
+      scale: 0.01
     ref: -2.42
-    proposal: 0.05
+    proposal: 0.005
   EE_PolGalDust_Beta:
     prior:
       dist: norm
       loc: 1.51
-      scale: 0.1
+      scale: 0.01
     ref: 1.51
-    proposal: 0.05
+    proposal: 0.005
   TE_PolGalDust_Amp:
     prior:
       dist: norm
       loc: 0.12
-      scale: 0.1
+      scale: 0.01
     ref: 0.12
-    proposal: 0.05
+    proposal: 0.005
   TE_PolGalDust_Alpha:
     prior:
       dist: norm
       loc: -2.42
-      scale: 0.1
+      scale: 0.01
     ref: -2.42
-    proposal: 0.05
+    proposal: 0.005
   TE_PolGalDust_Beta:
     prior:
       dist: norm
       loc: 1.51
-      scale: 0.1
+      scale: 0.01
     ref: 1.51
-    proposal: 0.05
+    proposal: 0.005
   TT_GalCirrus_Amp:
     prior:
       dist: norm
       loc: 1.88
-      scale: 0.1
+      scale: 0.01
     ref: 1.88
-    proposal: 0.05
+    proposal: 0.005
   TT_GalCirrus_Alpha:
     prior:
       dist: norm
       loc: -2.53
-      scale: 0.1
+      scale: 0.01
     ref: -2.53
-    proposal: 0.05
+    proposal: 0.005
   TT_GalCirrus_Beta:
     prior:
       dist: norm
       loc: 1.48
-      scale: 0.1
+      scale: 0.01
     ref: 1.48
-    proposal: 0.05
+    proposal: 0.005
   TT_tSZ_Amp:
     prior:
       dist: norm
       loc: 3.2279
-      scale: 0.1
+      scale: 0.01
     ref: 3.2279
-    proposal: 0.05
+    proposal: 0.005
   TT_kSZ_Amp:
     prior:
       dist: norm
       loc: 3.7287
-      scale: 0.1
+      scale: 0.01
     ref: 3.7287
-    proposal: 0.05
+    proposal: 0.005
   Kappa:
     prior:
       dist: norm
       loc: 0.0
-      scale: 0.1
+      scale: 0.01
     ref: 0.0
-    proposal: 0.05
+    proposal: 0.005
   TT_tSZ_CIB_Corr_Amp:
     prior:
       dist: norm
       loc: 0.1801
-      scale: 0.1
+      scale: 0.01
     ref: 0.1801
-    proposal: 0.05
+    proposal: 0.005
   Tcal90:
     prior:
       dist: norm
       loc: 1.0
-      scale: 0.1
+      scale: 0.01
     ref: 1.0
-    proposal: 0.05
+    proposal: 0.005
   Tcal150:
     prior:
       dist: norm
       loc: 1.0
-      scale: 0.1
+      scale: 0.01
     ref: 1.0
-    proposal: 0.05
+    proposal: 0.005
   Tcal220:
     prior:
       dist: norm
       loc: 1.0
-      scale: 0.1
+      scale: 0.01
     ref: 1.0
-    proposal: 0.05
+    proposal: 0.005
   Ecal90:
     prior:
       dist: norm
       loc: 1.0
-      scale: 0.1
+      scale: 0.01
     ref: 1.0
-    proposal: 0.05
+    proposal: 0.005
   Ecal150:
     prior:
       dist: norm
       loc: 1.0
-      scale: 0.1
+      scale: 0.01
     ref: 1.0
-    proposal: 0.05
+    proposal: 0.005
   Ecal220:
     prior:
       dist: norm
       loc: 1.0
-      scale: 0.1
+      scale: 0.01
     ref: 1.0
-    proposal: 0.05
+    proposal: 0.005
+  P_act:
+    prior:
+      dist: norm
+      loc: 1.0
+      scale: 0.01
+    ref: 1.0
+    proposal: 0.005
 sampler:
   mcmc:
     burn_in: 50
