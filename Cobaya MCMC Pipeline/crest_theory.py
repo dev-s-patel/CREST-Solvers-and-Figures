@@ -1,7 +1,7 @@
 import numpy as np
 from cobaya.theories.camb.camb import CAMB, CAMBOutputs
 
-class crest_EFT(CAMB):
+class crest_theory(CAMB):
     r"""
     CREST EFT Wrapper.
     Injects 3D Brillouin lattice dispersion transfer function into CAMB initial power table.
